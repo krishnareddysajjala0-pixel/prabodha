@@ -1,0 +1,16 @@
+﻿# Gradle & build outputs
+.gradle/
+build/
+app/build/
+
+# Local & IDE files
+local.properties
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+
+# APK / AAB artifacts
+*.apk
+*.aab
+*.ap_
