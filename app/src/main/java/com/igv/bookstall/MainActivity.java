@@ -979,20 +979,28 @@ public class MainActivity extends Activity {
                 pLine.setColor(Color.rgb(200, 200, 200));
                 pLine.setStrokeWidth(1);
 
-                // Document Title
+                // Document Title & Subtitle
                 c.drawText("ఇందూ జ్ఞానవేదిక ప్రచురణలు", W / 2f, 26, pTitle);
-                c.drawLine(20, 32, W - 20, 32, pLine);
+
+                Paint pSubTitle = new Paint(Paint.ANTI_ALIAS_FLAG);
+                pSubTitle.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
+                pSubTitle.setTextSize(10f);
+                pSubTitle.setTextAlign(Paint.Align.CENTER);
+                pSubTitle.setColor(green);
+                c.drawText("“త్రైత సిద్ధాంత ఆధ్యాత్మిక గ్రంథములు మానవ జీవితమునకు గొప్ప వెలుగు”", W / 2f, 41, pSubTitle);
+
+                c.drawLine(20, 48, W - 20, 48, pLine);
 
                 // Your Info Section (Compact 2 Lines)
                 String dateStr = new SimpleDateFormat("dd/MM/yyyy, hh:mm a", Locale.US).format(new Date());
 
-                c.drawText("వివరములు:", 25, 46, pBold);
-                c.drawText("పేరు: " + name + "    కమిటీ: " + committee, 25, 60, pText);
-                c.drawText("ఫోన్: " + phone + "    తేదీ: " + dateStr + "    చిరునామా: " + address, 25, 74, pText);
+                c.drawText("వివరములు:", 25, 62, pBold);
+                c.drawText("పేరు: " + name + "    కమిటీ: " + committee, 25, 76, pText);
+                c.drawText("ఫోన్: " + phone + "    తేదీ: " + dateStr + "    చిరునామా: " + address, 25, 90, pText);
 
-                c.drawLine(20, 82, W - 20, 82, pLine);
+                c.drawLine(20, 98, W - 20, 98, pLine);
 
-                int y = 92;
+                int y = 108;
                 int grandTotal = 0;
                 int grandCount = 0;
                 int serialNo = 1;
@@ -1120,16 +1128,6 @@ public class MainActivity extends Activity {
                 pBold.setColor(Color.rgb(94, 53, 177));
                 c.drawText("మొత్తం అన్ని గ్రంథములు: " + grandCount, 25, y, pBold);
                 c.drawText("మొత్తం వెల: ₹" + String.format(Locale.US, "%,d", grandTotal) + ".00", 350, y, pBold);
-
-                // PDF Bottom Message
-                y += 22;
-                Paint pFooterMsg = new Paint(Paint.ANTI_ALIAS_FLAG);
-                pFooterMsg.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
-                pFooterMsg.setTextSize(9.5f);
-                pFooterMsg.setTextAlign(Paint.Align.CENTER);
-                pFooterMsg.setColor(Color.rgb(18, 59, 104));
-
-                c.drawText("“ఆధ్యాత్మిక జ్ఞానాన్ని ప్రతి ఒక్కరికీ చేరువ చేసే ఈ గ్రంథాలను దయచేసి ఆర్డర్ తీసుకొని అందించగలరని మనవి.”", W / 2f, y, pFooterMsg);
 
                 doc.finishPage(p);
 
